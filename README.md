@@ -1,26 +1,29 @@
-# ClearMind Mediation App
+# Dietary App
 
-This is an app that helps you destress and clear your mind.
+Capstone project and Main Portfolio piece. 
+This app helps users with health conditions find recipes and will build a meal plan based on their needs. 
+I will be working with React-Native, Firebase and a Recipe API to accomplish this.
 
 ## Prerequisites
 
 React Native developement environment.
+An API key.
 The packages that need to be installed inorder to get the project running
 
 ## Getting Started
 
 1. Clone the repo.
 ```
-   git clone https://github.com/NatashaAC/ClearMind.git
+   git clone https://github.com/NatashaAC/dietaryApp.git
 ```
 
-2. Navigate to the folder containing th project and install the node modules.
+2. Navigate to the folder containing the project and install the node modules.
 ```
-   cd finalAssignment
+   cd dietaryApp
    npm install
 ```
 
-3. Install the dependencie for REACT NAVIGATION, beacuse this project uses a stack navigation .
+3. Install the dependencie for REACT NAVIGATION, beacuse this project uses a tab navigation .
 ```
    npm install react-navigation
 ```
@@ -31,14 +34,14 @@ The packages that need to be installed inorder to get the project running
    npm install react-native-gesture-handler
 ```
 
-5. Install the dependencie for STACK NAVIGATION.
+5. Install the dependencie for TAB NAVIGATION.
 ```
-   npm install react-navigation-stack
+   npm install react-navigation-tabs
 ```
 
-6. Install the dependecies for EASY GRID
+6. Install the dependecies for FIREBASE
 ```
-   npm install react-native-easy-grid
+   npm install
 ```
 
 ## Running the tests
