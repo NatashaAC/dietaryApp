@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet} from 'react-native';
+import { View, TextInput, StyleSheet, Button} from 'react-native';
 
 export default class RegisterForm extends Component {
+
+  constructor(props){
+    super(props)
+
+    this.state = ({
+      email: '',
+      password: ''
+    })
+  }
+
+  signUpUser = (email, password) => {
+    try {
+      if(this.state.password.length < 6) {
+        alert("Please enter atleast 6 charatcers!")
+        return;
+      }
+
+      Firebase.auth().createUserWithEmailAndPassword(email, password)
+    }
+    catch(error) {
+      console.log(error.toString());
+    }
+  }
 
     render() {
       return (
         <View style={styles.container}>
-            {/* <TextInput style={styles.input}
+            <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
               autoCorrect= {false}
               keyboardType= 'first-name'
@@ -22,7 +45,7 @@ export default class RegisterForm extends Component {
               returnKeyType= "next"
               placeholder= "Last Name"
               placeholderTextColor= 'lightgray'>
-          </TextInput> */}
+          </TextInput>
 
           <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
@@ -40,6 +63,19 @@ export default class RegisterForm extends Component {
               placeholderTextColor= "lightgray"
               secureTextEntry>
           </TextInput>
+
+          <Button
+            success
+            title= 'Sign Up'
+            rounded
+            full
+            onPress={ () => this.signUpUser(this.state.email, this.state.password)}>
+          </Button>
+
+          <Button
+            title= 'Login'
+            onPress={ () => this.props.navigate('LoginScreen')}>
+          </Button>
         </View>
       );
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, TouchableHighlight, Text, Button } from 'react-native';
 
-import Firebase from 'firebase.js';
+import Firebase from '../config/Firebase';
 
 export default class LoginForm extends Component {
 
@@ -12,20 +12,6 @@ export default class LoginForm extends Component {
       email: '',
       password: ''
     })
-  }
-
-  signUpUser = (email, password) => {
-    try {
-      if(this.state.password.length < 6) {
-        alert("Please enter atleast 6 charatcers!")
-        return;
-      }
-
-      Firebase.auth().createUserWithEmailAndPassword(email, password)
-    }
-    catch(error) {
-      console.log(error.toString());
-    }
   }
 
   loginUser = (email, password) => {
@@ -63,21 +49,16 @@ export default class LoginForm extends Component {
           </TextInput>
 
           <Button
-          primary
-          title= 'Login'
-          rounded
-          full
-          onPress={ () => this.loginUser(this.state.email, this.state.password)}>
+            primary
+            title= 'Login'
+            rounded
+            full
+            onPress={ () => this.loginUser(this.state.email, this.state.password)}>
           </Button>
 
           <Button
-          success
-          title= 'Sign Up'
-          rounded
-          full
-          onPress={ () => this.signUpUser(this.state.email, this.state.password)}>
-          </Button>
-
+            title= 'Sign Up'
+            onPress={ () => this.props.navigate('RegisterScreen')}></Button>
         </View>
       );
     }
