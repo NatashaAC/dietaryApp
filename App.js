@@ -1,11 +1,13 @@
 import React, { Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import LoginScreen from './components/screens/form/loginscreen';
+
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>This is App</Text>
+        <LoginScreen />
       </View>
     );
   }
