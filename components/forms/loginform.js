@@ -56,10 +56,13 @@ export default class LoginForm extends Component {
             onPress={ () => this.loginUser(this.state.email, this.state.password)}>
           </Button>
 
-          {/* <Button
+          <Button
             title= 'Sign Up'
-            onPress={ () => this.props.navigate('RegisterScreen')}>
-          </Button> */}
+            onPress= { 
+              () => 
+              this.props.navigation.navigate('Register') 
+              }>
+          </Button>
         </View>
       );
     }
