@@ -71,14 +71,6 @@ export default class RegisterForm extends Component {
             full
             onPress={ () => this.signUpUser(this.state.email, this.state.password)}>
           </Button>
-
-          <Button
-            title= 'LOGIN'
-            onPress= { 
-              () => 
-              this.props.navigation.navigate('Login')
-              }>
-          </Button> 
         </View>
       );
     }

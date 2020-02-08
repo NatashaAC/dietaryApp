@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+
 import RegisterForm from '../../forms/registerform';
 
 export default class RegisterScreen extends Component {
@@ -8,6 +9,13 @@ export default class RegisterScreen extends Component {
       <View style={styles.container}>
         <Text>This is where you can sign up</Text>
         <RegisterForm />
+        <Button
+            title= 'LOGIN'
+            onPress= {
+              () =>
+              this.props.navigation.navigate('Login')
+            }>
+        </Button> 
       </View>
     );
   }

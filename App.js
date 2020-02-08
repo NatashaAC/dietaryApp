@@ -5,10 +5,12 @@ import LoginScreen from './components/screens/form/loginscreen';
 import RegisterScreen from './components/screens/form/registerscreen';
 
 const stackNavigator = createStackNavigator({
-  Login: { screen: LoginScreen},
-  Register: { screen: RegisterScreen }
-});
+  Login: LoginScreen,
+  Register: RegisterScreen
+},
+{
+  initialRouteName: 'Login'
+}
+);
 
-const App = createAppContainer(stackNavigator);
-
-export default App;
+export default createAppContainer(stackNavigator);

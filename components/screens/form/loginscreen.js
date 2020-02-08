@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 import LoginForm from '../../forms/loginform';
 
@@ -9,6 +9,13 @@ export default class LoginScreen extends Component {
       <View style={styles.container}>
         <Text>This is where you login</Text>
         <LoginForm />
+        <Button
+            title= 'Sign Up'
+            onPress= {
+              () =>
+              this.props.navigation.navigate('Register')
+            }>
+        </Button>
       </View>
     );
   }
