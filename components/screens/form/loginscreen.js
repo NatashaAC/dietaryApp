@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import LoginForm from '../../forms/loginform';
 
 export default class LoginScreen extends Component {
+
   render() {
     return (
       <View style={styles.container}>
