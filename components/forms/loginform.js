@@ -53,7 +53,10 @@ export default class LoginForm extends Component {
             title= 'Login'
             rounded
             full
-            onPress={ () => this.loginUser(this.state.email, this.state.password)}>
+            onPress= { 
+              () => 
+              this.loginUser(this.state.email, this.state.password).props.navigation.navigate('HomeScreen')
+              }>
           </Button>
         </View>
       );
