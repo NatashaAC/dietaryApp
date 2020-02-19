@@ -21,7 +21,7 @@ export default class LoginForm extends Component {
       });
     }
     catch(error) {
-      Console.log(error.toString());
+      console.log(error.toString());
     }
   }
 
@@ -44,6 +44,7 @@ export default class LoginForm extends Component {
               ref={(input) => this.passwordInput = input}
               placeholder="Password" 
               placeholderTextColor= "lightgray"
+              autoCapitalize= 'none'
               secureTextEntry
               onChangeText={(password) => this.setState({ password })}>
           </TextInput>
@@ -55,7 +56,7 @@ export default class LoginForm extends Component {
             full
             onPress= { 
               () => 
-              this.loginUser(this.state.email, this.state.password).props.navigation.navigate('HomeScreen')
+              this.loginUser(this.state.email, this.state.password).navigate('HomeScreen')
               }>
           </Button>
         </View>

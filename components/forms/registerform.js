@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Button} from 'react-native';
 
+import Firebase from '../config/Firebase';
+
 export default class RegisterForm extends Component {
 
   constructor(props){
@@ -29,7 +31,7 @@ export default class RegisterForm extends Component {
     render() {
       return (
         <View style={styles.container}>
-            <TextInput style={styles.input}
+            {/* <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
               autoCorrect= {false}
               keyboardType= 'first-name'
@@ -45,7 +47,7 @@ export default class RegisterForm extends Component {
               returnKeyType= "next"
               placeholder= "Last Name"
               placeholderTextColor= 'lightgray'>
-          </TextInput>
+          </TextInput> */}
 
           <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
@@ -53,7 +55,8 @@ export default class RegisterForm extends Component {
               keyboardType= 'email-address'
               returnKeyType= "next"
               placeholder= "Email"
-              placeholderTextColor= 'lightgray'>
+              placeholderTextColor= 'lightgray'
+              onChangeText={(email) => this.setState({ email })}>
           </TextInput>
             
           <TextInput style={styles.input}
@@ -61,7 +64,8 @@ export default class RegisterForm extends Component {
               ref={(input) => this.passwordInput = input}
               placeholder="Password"
               placeholderTextColor= "lightgray"
-              secureTextEntry>
+              secureTextEntry
+              onChangeText={(password) => this.setState({ password })}>
           </TextInput>
 
           <Button
@@ -69,7 +73,7 @@ export default class RegisterForm extends Component {
             title= 'Sign Up'
             rounded
             full
-            onPress={ () => this.signUpUser(this.state.email, this.state.password)}>
+            onPress={ () => this.signUpUser(this.state.email, this.state.password).navigation.navigate('Home')}>
           </Button>
         </View>
       );

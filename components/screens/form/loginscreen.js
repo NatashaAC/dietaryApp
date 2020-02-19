@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Image, View, Button, KeyboardAvoidingView } from 'react-native';
 
 import LoginForm from '../../forms/loginform';
 
@@ -7,17 +7,21 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>This is where you login</Text>
-        <LoginForm />
-        <Button
-            title= 'Sign Up'
-            onPress= {
-              () =>
-              this.props.navigation.navigate('Register')
-            }>
-        </Button>
-      </View>
+      <KeyboardAvoidingView enabled behavior='padding' style={styles.container}>
+        <View style={styles.loginContainer}>
+          <Image style={styles.logo} resizeMode='contain' source={require('../../../assets/logo.png')}></Image>
+        </View>
+        <View>
+          <LoginForm />
+          <Button
+              title= 'Sign Up'
+              onPress= {
+                () =>
+                this.props.navigation.navigate('Register')
+              }>
+          </Button>
+        </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -28,5 +32,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  loginContainer:{
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  logo: {
+      position: 'absolute',
+      width: 500,
+      height: 250
   },
 });
