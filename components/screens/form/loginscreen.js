@@ -18,7 +18,7 @@ export default class LoginScreen extends Component {
               onPress= {
                 () =>
                 this.props.navigation.navigate('Register')
-              }>
+               }>
           </Button>
         </View>
       </KeyboardAvoidingView>
