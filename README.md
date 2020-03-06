@@ -39,9 +39,19 @@ The packages that need to be installed inorder to get the project running
    npm install react-navigation-tabs
 ```
 
-6. Install the dependecies for FIREBASE
+6. Install the dependencie for STACK NAVIGATION.
 ```
-   npm install
+   npm install react-navigation-stack
+```
+
+7. Install the dependecies for FIREBASE
+```
+   npm install firebase
+```
+
+8. Install the dependencie for REACT-ELEMENTS.
+```
+   npm install react-native-elements
 ```
 
 ## Running the tests
