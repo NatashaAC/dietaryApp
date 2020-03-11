@@ -5,50 +5,46 @@ export default class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
-    this.state ={ isLoading: true }
+    this.state = {
+      isLoading: true,
+      dataSource: null
+    }
   }
 
-  componentDidMount() {
-    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=5", {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "x-rapidapi-key": "28ef96556amsh63000c2e224a8cfp1806e9jsn1a1938144972"
-      }
-    }).then(response => {
+  componentDidMount () {
+
+    return fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1")
+    .then( (response) => response.json() )
+    .then( (responseJson) => {
 
       this.setState({
         isLoading: false,
-        dataSource: response.recipes,
-      }, function() {
-
-      });
-     
-    }).catch(err => {
-
-      console.log(err);
-
+        dataSource: responseJson.recipes,
+      })
+    })
+    .catch((error) => {
+      console.log(error) 
     });
+
   }
+
   render() {
-    if(this.state.isLoading) {
-      return(
-        <View style={{flex: 1, padding: 20}}>
+
+    if (this.state.isLoading) {
+
+      return (
+        <View style={styles.container}>
           <ActivityIndicator />
+        </View>
+      )
+    } else {
+
+      return (
+        <View>
+          <Text>Content Loaded</Text>
         </View>
       );
     }
-
-    return(
-      <View>
-        <FlatList 
-        data={ this.state.dataSource }
-        renderItem={ ({item}) => <Text>{item.recipes.title}</Text>}
-        // keyExtractor={ ({id}, recipes) => id}
-        >
-        </FlatList>
-      </View>
-    );
   }
 }
 
