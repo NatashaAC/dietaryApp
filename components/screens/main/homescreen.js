@@ -39,9 +39,15 @@ export default class HomeScreen extends Component {
       )
     } else {
 
+      let recipes = this.state = dataSource.map((val, key) => {
+        return <View key={key} style={styles.item}>
+              <Text>{val.title}</Text>
+        </View>
+      });
+
       return (
-        <View>
-          <Text>Content Loaded</Text>
+        <View style={styles.container}>
+          {recipes}
         </View>
       );
     }
@@ -55,4 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  item: {
+    flex: 1
+  }
 });
