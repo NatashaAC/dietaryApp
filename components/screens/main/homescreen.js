@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
+
+const screen = Dimensions.get('screen')
 
 export default class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
+      isLoading: true, 
       dataSource: null
     }
   }
 
   componentDidMount () {
 
-    return fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1")
-    .then( (response) => response.json() )
-    .then( (responseJson) => {
-
+    return fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegetarian%252Cdessert", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": "28ef96556amsh63000c2e224a8cfp1806e9jsn1a1938144972"
+    }
+    })
+    .then(response => {
       this.setState({
         isLoading: false,
-        dataSource: responseJson.recipes,
+        dataSource: response.recipes,
       })
     })
-    .catch((error) => {
-      console.log(error) 
+    .catch(err => {
+      console.log(err);
     });
-
   }
 
   render() {
@@ -46,7 +51,7 @@ export default class HomeScreen extends Component {
       });
 
       return (
-        <View style={styles.container}>
+        <View>
           {recipes}
         </View>
       );
@@ -61,7 +66,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  item: {
-    flex: 1
-  }
 });
