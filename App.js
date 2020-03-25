@@ -1,4 +1,5 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import LoginScreen from './components/screens/form/loginscreen';
@@ -12,10 +13,14 @@ import SavedRecipeScreen from './components/screens/main/savedrecipescreen';
 const switchNavigator = createSwitchNavigator({
   Login: LoginScreen,
   Register: RegisterScreen,
-  Home: HomeScreen
+
 },
 {
   initialRouteName: 'Login'
+});
+
+const dashboardStackNavigator = createStackNavigator({
+  homeTabNavigator: homeTabNavigator
 });
 
 const homeTabNavigator = createBottomTabNavigator({
@@ -25,4 +30,4 @@ const homeTabNavigator = createBottomTabNavigator({
   Saved: SavedRecipeScreen
 });
 
-export default createAppContainer(switchNavigator);
+export default createAppContainer(homeTabNavigator);

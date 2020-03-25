@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
-import Button from '../onboarding/button';
+import Onboarding from 'react-native-onboarding-swiper';
+import CustomButton from '../onboarding/button';
 
-export default class Screens extends Component {
+export default class OnboardingScreens extends Component {
     render() {
         return (
-            <View style={styles.slide}>
-                <View style={styles.bg}>
-                    <Image style={styles.logo} source={require('../../assets/logo.png')}></Image>
-                    <Text style={styles.text}>Having trouble finding a recipe that suits you, don't worry Nutridish can help you with that.</Text>
-                </View>
-                <Button text='Continue'  />
-            </View>
-
-            // <View style={styles.slide}>
-            //     <View style={styles.bg}>
-            //         <Text style={style.headerText}>How to Use the App</Text>
-            //         <Text style={styles.text}>Having trouble finding a recipe that suits you, don't worry Nutridish can help you with that.</Text>
-            //     </View>
-            // </View>
-
-            // <View style={styles.slide}>
-            //     <View style={styles.bg}>
-            //         <Text >Let's Get Started</Text>
-            //         <Text style={styles.text}>Having trouble finding a recipe that suits you, don't worry Nutridish can help you with that.</Text>
-            //     </View>
-            // </View> 
+            <Onboarding
+                pages={[
+                    {
+                        backgroundColor: '#EAF8E4',
+                        image: <Image source={require('../../assets/logo.png')} ></Image>,
+                        subtitle: 'Having trouble finding a recipe that suits your needs? Nutridish can help with that.'
+                    }
+                ]}
+            />
         );
     }
 }

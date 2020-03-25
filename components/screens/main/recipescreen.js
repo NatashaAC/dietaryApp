@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default class RecipeScreen extends Component {
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Text>This is where you can search for recipes</Text>
-      </ScrollView>
+      </View>
     );
   }
 }
