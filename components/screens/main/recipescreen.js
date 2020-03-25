@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Container, Content } from 'native-base';
+import { Container, Content } from 'react-native-elements';
 
 import SearchHeader from '../search/searchheader';
 

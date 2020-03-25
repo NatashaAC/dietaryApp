@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Header, Item, Input } from 'native-base';
+import { Header, Item, Input } from 'react-native-elements';
 import { Icon } from 'react-native-vector-icons';
 
 export default class SearchHeader extends Component {
@@ -12,7 +12,7 @@ export default class SearchHeader extends Component {
             searchBar
             rounded
         >
-          <Icon name='search'
+          <Icon name='heartbeat'
           type='font-awesome'></Icon>
         </Header>
     );

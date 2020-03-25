@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 
-import { Header } from 'native-base';
+import { Header } from 'react-native-elements';
 
 // const screen = Dimensions.get('screen')
 

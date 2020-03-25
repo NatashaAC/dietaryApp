@@ -30,4 +30,4 @@ const homeTabNavigator = createBottomTabNavigator({
   Saved: SavedRecipeScreen
 });
 
-export default createAppContainer(switchNavigator);
+export default createAppContainer(homeTabNavigator);
