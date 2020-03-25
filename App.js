@@ -15,10 +15,11 @@ const switchNavigator = createSwitchNavigator({
   Login: LoginScreen,
   Register: RegisterScreen,
   Onboarding: OnboardingScreens
-},
-{
-  initialRouteName: 'Onboarding'
-});
+}
+// ,{
+//   initialRouteName: 'Onboarding'
+// }
+);
 
 // const dashboardStackNavigator = createStackNavigator({
 //   homeTabNavigator: homeTabNavigator
