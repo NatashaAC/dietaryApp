@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 
-const screen = Dimensions.get('screen')
+// const screen = Dimensions.get('screen')
 
 export default class HomeScreen extends Component {
 
