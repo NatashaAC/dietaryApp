@@ -9,7 +9,7 @@ export default class RecipeScreen extends Component {
   render() {
     return (
       <Container>
-        <SearchHeader />
+        {/* <SearchHeader /> */}
         <Content>
 
         </Content>

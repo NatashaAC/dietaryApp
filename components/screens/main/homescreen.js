@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 
+import { Header } from 'native-base';
+
 // const screen = Dimensions.get('screen')
 
 export default class HomeScreen extends Component {
@@ -8,7 +10,12 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style = {styles.container}>
-        <Text>Home Page</Text>
+        <Header>
+          <Text>Hello, User!</Text>
+        </Header>
+        <View>
+          <Text>Recommendations</Text>
+        </View>
       </View>
     )
   }

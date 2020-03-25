@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Header, Icon, Item, Input } from 'native-base';
+import { Header, Item, Input } from 'native-base';
+import { Icon } from 'react-native-vector-icons';
 
 export default class SearchHeader extends Component {
   render() {
@@ -11,9 +12,8 @@ export default class SearchHeader extends Component {
             searchBar
             rounded
         >
-            <Item>
-                <Icon name='ios-search'></Icon>
-            </Item>
+          <Icon name='search'
+          type='font-awesome'></Icon>
         </Header>
     );
   }
