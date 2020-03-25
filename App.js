@@ -9,19 +9,20 @@ import HomeScreen from './components/screens/main/homescreen';
 import MealPlanScreen from './components/screens/main/mealplanscreen';
 import RecipeScreen from './components/screens/main/recipescreen';
 import SavedRecipeScreen from './components/screens/main/savedrecipescreen';
+import OnboardingScreens from './components/onboarding/onboardingscreen';
 
 const switchNavigator = createSwitchNavigator({
   Login: LoginScreen,
   Register: RegisterScreen,
-
+  Onboarding: OnboardingScreens
 },
 {
-  initialRouteName: 'Login'
+  initialRouteName: 'Onboarding'
 });
 
-const dashboardStackNavigator = createStackNavigator({
-  homeTabNavigator: homeTabNavigator
-});
+// const dashboardStackNavigator = createStackNavigator({
+//   homeTabNavigator: homeTabNavigator
+// });
 
 const homeTabNavigator = createBottomTabNavigator({
   Home: HomeScreen,

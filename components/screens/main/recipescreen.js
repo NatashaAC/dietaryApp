@@ -5,6 +5,7 @@ export default class RecipeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Recipes />
         <Text>This is where you can search for recipes</Text>
       </View>
     );
