@@ -1,11 +1,19 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImagePickerIOS } from 'react-native';
+
+import { Header } from 'react-native-elements';
 
 export default class SavedRecipeScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>This is where you can save recipes</Text>
+      <View>
+        <Header
+          containerStyle={{
+            backgroundColor: '#74D14C'
+          }} 
+          centerComponent={{ text: 'Favourite', style: { color: '#fff'}}}
+          rightComponent={{ icon: 'menu', color: '#fff'}}
+        />
       </View>
     );
   }

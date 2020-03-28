@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-import { Container, Content } from 'react-native-elements';
-
-import SearchHeader from '../search/searchheader';
+import { StyleSheet, Text, View } from 'react-native';;
 
 export default class RecipeScreen extends Component {
   render() {
     return (
-      <Container>
-        {/* <SearchHeader /> */}
-        <Content>
-
-        </Content>
-      </Container>
+      <View>
+        <Text>RecipeScreen</Text>
+      </View>
     );
   }
 }
