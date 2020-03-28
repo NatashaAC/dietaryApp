@@ -11,11 +11,10 @@ export default class HomeScreen extends Component {
     return (
       <View>
         <Header
-          barStyle='default '
           containerStyle={{
             backgroundColor: '#74D14C'
           }} 
-          leftComponent={{ text: 'Home', style: { color: '#fff'}}}
+          centerComponent={{ text: 'Home', style: { color: '#fff'}}}
           rightComponent={{ icon: 'menu', color: '#fff'}}
         />
       </View>

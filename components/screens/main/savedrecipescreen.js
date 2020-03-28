@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, View, ImagePickerIOS } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { Header } from 'react-native-elements';
+import { Header, Icon } from 'react-native-elements';
 
 export default class SavedRecipeScreen extends Component {
   render() {
@@ -14,6 +14,12 @@ export default class SavedRecipeScreen extends Component {
           centerComponent={{ text: 'Favourite', style: { color: '#fff'}}}
           rightComponent={{ icon: 'menu', color: '#fff'}}
         />
+        <Icon
+        containerStyle={{alignSelf: 'center', justifyContent: 'center'}}
+          size={250}
+          name='heart'
+          type='font-awesome'
+          color='#f50' />
       </View>
     );
   }
@@ -25,5 +31,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
