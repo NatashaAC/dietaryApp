@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import OnboardingScreens from './components/screens/onboarding/onboardingscreen';
 import LoginScreen from './components/screens/form/loginscreen';
-import RegisterScreen from './components/screens/form/registerscreen';
+import RegisterScreen from './components/screens/form/registration/registerscreen';
 
 import HomeScreen from './components/screens/main/homescreen';
 import RecipeScreen from './components/screens/main/recipescreen';
@@ -15,7 +15,7 @@ const switchNavigator = createSwitchNavigator({
   Register: RegisterScreen
 }
 ,{
-  initialRouteName: 'Login'
+  initialRouteName: 'Register'
 }
 );
 

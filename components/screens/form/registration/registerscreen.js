@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { StyleSheet, Text, View, Button, KeyboardAvoidingView } from 'react-native';
 
-import RegisterForm from '../../forms/registerform';
+import RegisterForm from '../../../forms/registerform';
 
 export default class RegisterScreen extends Component {
   render() {
