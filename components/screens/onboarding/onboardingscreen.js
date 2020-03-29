@@ -18,19 +18,19 @@ export default class OnboardingScreens extends Component {
                     pages={[
                         {
                             backgroundColor: '#EAF8E4',
-                            image: <Image source={require('../../assets/mini_logo2.png')} ></Image>,
+                            image: <Image source={require('../../../assets/mini_logo2.png')} ></Image>,
                             title: 'NutriDish',
                             subtitle: 'Having trouble finding a recipe that suits your needs? NutriDish can help with that.'
                         },
                         {
                             backgroundColor: '#EAF8E4',
-                            image: <Image source={require('../../assets/mini_logo2.png')} ></Image>,
+                            image: <Image source={require('../../../assets/mini_logo2.png')} ></Image>,
                             title: 'How to use the App',
                             subtitle: 'Search and save your favourite recipes, or get a customized meal plan based on your dietary needs.'
                         },
                         {
                             backgroundColor: '#EAF8E4',
-                            image: <Image source={require('../../assets/mini_logo2.png')} ></Image>,
+                            image: <Image source={require('../../../assets/mini_logo2.png')} ></Image>,
                             title: 'Let\'s Get Started',
                             subtitle: 'Make a free account today to start using the app.'
                         }

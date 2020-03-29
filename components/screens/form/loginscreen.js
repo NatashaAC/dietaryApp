@@ -24,7 +24,7 @@ export default class LoginScreen extends Component {
           title='Home'
           onPress= {
             () =>
-            this.props.navigation.navigate('Dashboard')
+            this.props.navigation.navigate('Home')
           }>
           </Button>
         </View>

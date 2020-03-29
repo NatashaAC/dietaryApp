@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';;
+import { ScrollView } from 'react-native';;
 
-import { Header, SearchBar } from 'react-native-elements';
-import Axios from 'axios';
+import { Header, SearchBar, Card } from 'react-native-elements';
 
 export default class RecipeScreen extends Component {
 
   state = {
+
     searchRecipe: '',
     recipeData: {}
+
   }
 
   recipeSearch = () => {
+
     const recipeName = this.state.searchRecipe.toLowerCase();
 
     // API call
-    Axios = require("axios");
+    const axios = require("axios");
 
-    Axios({
+    axios({
         "method":"GET",
         "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search",
         "headers":{
@@ -30,29 +32,42 @@ export default class RecipeScreen extends Component {
         }
         })
         .then((response)=>{
-          // console.log(response.data)
+
+          console.log(response.data)
           
-          var data = response.data[0] ? response.data[0] : false
+          var data = response.data.results[0] ? response.data.results[0] : false
           this.setState({
             recipeData: data
           })
+
         })
         .catch((error)=>{
+
           console.log(error)
+
         })
   }
 
   renderContent = () => {
     if(this.state.recipeData) {
-    return <View><Text style={{color: '#000'}}>{this.state.recipeData.title}</Text></View>
+    return (
+
+      <Card 
+        title={this.state.recipeData.title}
+        image={{ uri:  this.state.recipeData.image }}>
+      </Card>
+      );
+
     } else {
+
       console.log('Recipe not found')
+
     }
   }
 
   render() {
     return (
-      <View>
+      <ScrollView>
         <Header
           containerStyle={{
             backgroundColor: '#74D14C'
@@ -60,6 +75,7 @@ export default class RecipeScreen extends Component {
           centerComponent={{ text: 'Recipes', style: { color: '#fff'}}}
           rightComponent={{ icon: 'menu', color: '#fff'}}
         />
+
         <SearchBar
           containerStyle={{
             backgroundColor: '#74D14C',
@@ -74,18 +90,9 @@ export default class RecipeScreen extends Component {
           returnKeyType='search'
           onSubmitEditing={this.recipeSearch}
           recipeSearch = {this.recipeSearch}
-           />
+        />
            {this.renderContent()}
-      </View>
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

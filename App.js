@@ -15,7 +15,7 @@ const switchNavigator = createSwitchNavigator({
   Register: RegisterScreen
 }
 ,{
-  initialRouteName: 'Onboarding'
+  initialRouteName: 'Login'
 }
 );
 
