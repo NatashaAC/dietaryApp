@@ -7,16 +7,17 @@ export default class RegisterScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView enabled behavior='padding' style={styles.container}>
-        <View>
-          <Text>This is where you can sign up</Text>
+        <View style={styles.signupContainer}>
+          <Text>Create an Account</Text>
           <RegisterForm />
           <Button
-              title= 'LOGIN'
+              title= 'Next'
               onPress= {
                 () =>
-                this.props.navigation.navigate('Login')
-              }>
-          </Button> 
+                this.props.navigation.navigate('Health')
+              }
+              color='#74D14C'
+          ></Button> 
         </View>
       </KeyboardAvoidingView>
     );
@@ -29,5 +30,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#EAF8E4'
   },
+  signupContainer:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFF',
+    height: 600, 
+    width: 330
+  }
 });

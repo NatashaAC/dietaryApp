@@ -50,15 +50,13 @@ export default class LoginForm extends Component {
           </TextInput>
 
           <Button
-            primary
             title= 'Login'
-            rounded
-            full
             onPress={ 
               () =>
               this.loginUser(this.state.email, this.state.password)
-              }>
-          </Button>
+              }
+              color='#74D14C'
+          ></Button>
         </View>
       );
     }
@@ -70,7 +68,7 @@ export default class LoginForm extends Component {
     },
     input: {
       height: 40,
-      width: 200,
+      width: 250,
       backgroundColor: 'white',
       borderColor: 'gray',
       borderWidth: 2,

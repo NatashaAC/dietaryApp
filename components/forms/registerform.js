@@ -31,7 +31,7 @@ export default class RegisterForm extends Component {
     render() {
       return (
         <View style={styles.container}>
-            {/* <TextInput style={styles.input}
+          <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
               autoCorrect= {false}
               keyboardType= 'first-name'
@@ -47,7 +47,7 @@ export default class RegisterForm extends Component {
               returnKeyType= "next"
               placeholder= "Last Name"
               placeholderTextColor= 'lightgray'>
-          </TextInput> */}
+          </TextInput>
 
           <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
@@ -71,8 +71,7 @@ export default class RegisterForm extends Component {
           <Button
             success
             title= 'Sign Up'
-            rounded
-            full
+            color='#74D14C'
             onPress= { 
               () => 
               this.signUpUser(this.state.email, this.state.password) 
@@ -89,6 +88,7 @@ export default class RegisterForm extends Component {
     },
     input: {
       height: 40,
+      width: 250,
       backgroundColor: 'white',
       borderColor: 'black',
       borderWidth: 1,
