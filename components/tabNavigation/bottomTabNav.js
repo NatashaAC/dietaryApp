@@ -10,7 +10,7 @@ const HomeTabNavigator = createBottomTabNavigator({
     Saved: SavedRecipeScreen
   },
   {
-      initialRouteName: 'Home'
+      initialRouteName: 'Home',
   });
 
   export default HomeTabNavigator;
