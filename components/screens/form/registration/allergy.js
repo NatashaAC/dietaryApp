@@ -8,7 +8,7 @@ export default class AllergyScreen extends Component {
     constructor(props){
         super(props);
         this.state= {
-            isChecked: true
+            isChecked: 'true'
         }
     }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';;
 
-import { Header, SearchBar, Card } from 'react-native-elements';
+import { Header, SearchBar, Card, Image } from 'react-native-elements';
 
 export default class RecipeScreen extends Component {
 
@@ -54,7 +54,11 @@ export default class RecipeScreen extends Component {
 
       <Card 
         title={this.state.recipeData.title}
-        image={{ uri:  this.state.recipeData.image }}>
+      >
+        <Image
+          resizeMode='contain'
+          source={this.state.recipeData.image}>
+        </Image>
       </Card>
       );
 
