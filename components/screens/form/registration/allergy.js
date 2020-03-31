@@ -79,7 +79,7 @@ export default class AllergyScreen extends Component {
                     title='done'
                     onPress = {
                         () =>
-                        this.props.navigation.navigate('Home')
+                        this.props.navigation.navigate('HomeTabNavigator')
                     }
                     color='#74D14C'
                  ></Button>

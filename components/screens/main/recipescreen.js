@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';;
+import { ScrollView, Text } from 'react-native';;
 
 import { Header, SearchBar, Card, Image } from 'react-native-elements';
+import SearchBody from '../../search/searchbody';
 
 export default class RecipeScreen extends Component {
 
   state = {
 
     searchRecipe: '',
-    recipeData: {}
+    recipeData: {},
+    recipeFound: false
 
   }
 
@@ -37,30 +39,25 @@ export default class RecipeScreen extends Component {
           
           var data = response.data.results[0] ? response.data.results[0] : false
           this.setState({
-            recipeData: data
+            recipeData: data,
+            recipeFound: true
           })
 
         })
         .catch((error)=>{
 
-          console.log(error)
+          this.setState ({
+            recipeFound: false
+          })
+
+          console.log(error);
 
         })
   }
 
   renderContent = () => {
     if(this.state.recipeData) {
-    return (
-
-      <Card 
-        title={this.state.recipeData.title}
-      >
-        <Image
-          resizeMode='contain'
-          source={this.state.recipeData.image}>
-        </Image>
-      </Card>
-      );
+    return  <SearchBody recipeData={this.state.recipeData} />
 
     } else {
 

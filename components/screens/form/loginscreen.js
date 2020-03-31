@@ -26,7 +26,7 @@ export default class LoginScreen extends Component {
               title='Home'
               onPress= {
                 () =>
-                this.props.navigation.navigate('Home')
+                this.props.navigation.navigate('Tab')
               }
               color='#74D14C'
             ></Button>

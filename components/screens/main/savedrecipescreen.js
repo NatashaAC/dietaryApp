@@ -3,7 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { Header, Icon } from 'react-native-elements';
 
+// import Firebase from '../../config/Firebase';
+
+// var data = []
+// var currentUser
+
 export default class SavedRecipeScreen extends Component {
+
   render() {
     return (
       <View>
