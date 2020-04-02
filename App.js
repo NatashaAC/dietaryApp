@@ -17,7 +17,7 @@ const switchNavigator = createSwitchNavigator({
   HomeTabNavigator: { screen: HomeTabNavigator }
 }
 ,{
-  initialRouteName: 'Allergy'
+  initialRouteName: 'HomeTabNavigator'
 }
 );
 

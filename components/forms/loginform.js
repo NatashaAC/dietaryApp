@@ -31,6 +31,7 @@ export default class LoginForm extends Component {
           <TextInput style={styles.input}
               autoCapitalize="none"
               onSubmitEditing= { () => this.passwordInput.focus()}
+              autoCapitalize= 'none'
               autoCorrect= {false}
               keyboardType= 'email-address'
               returnKeyType= "next"
