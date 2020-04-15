@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, Text, Button } from 'react-native';
+import { StyleSheet, ScrollView, View, Button } from 'react-native';
 
-import { CheckBox } from 'react-native-elements';
+import { CheckBox, Header } from 'react-native-elements';
+
+var tempCheckValues = [];
 
 export default class AllergyScreen extends Component {
 
     constructor(props){
         super(props);
-        this.state= {
-            isChecked: 'true'
+
+        this.state = {
+            boxChecked: []
         }
+    }
+
+    boxChanged(name, value) {
+        this.setState({
+            boxChecked: tempCheckValues
+        })
+
+        var tempBoxChecked = this.state.boxChecked;
+        tempBoxChecked[name] = !value;
+
+        this.setState({
+            boxChecked: tempBoxChecked
+        })
+
     }
 
     render() {
@@ -58,22 +75,31 @@ export default class AllergyScreen extends Component {
 
         return (
             <ScrollView>
-                <Text>Allergies</Text>
+                <Header
+                    containerStyle={{
+                        backgroundColor: '#74D14C',
+                        height: 60,
+                        paddingVertical: 25
+                    }} 
+                    placement='center'
+                    centerComponent={{text: 'ALLERGY', style: {color: '#FFF'}}}
+                />
                 {
-                    list.map((l, i) => (
-                        <CheckBox
-                            key={i}
-                            title={l.name}
-                            onPress= {
-                                () => {
-                                    this.setState({
-                                        isChecked: !this.state.isChecked
-                                    })
-                                }
-                            }
-                            isChecked= {this.state.isChecked}
-                        />
-                    ))
+                    list.map((val) => {
+                        {tempCheckValues[val.name] = false}
+
+                        return (
+
+                            <View key={val.name} style={{ flexDirection: 'column' }}>
+                                <CheckBox
+                                    title={val.name}
+                                    checked={this.state.boxChecked[val.name]}
+                                    onPress={() => this.boxChanged(val.name, this.state.boxChecked[val.name] )}
+                                />
+                            </View>
+ 
+                        );
+                    })
                 }
                 <Button
                     title='done'

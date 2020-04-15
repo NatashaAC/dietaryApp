@@ -15,17 +15,20 @@ export default class SavedRecipeScreen extends Component {
       <View>
         <Header
           containerStyle={{
-            backgroundColor: '#74D14C'
+            backgroundColor: '#74D14C',
+            height: 60,
+            paddingVertical: 25
           }} 
-          centerComponent={{ text: 'Favourite', style: { color: '#fff'}}}
+          centerComponent={{ text: 'FAVOURITE', style: { color: '#fff'}}}
           rightComponent={{ icon: 'menu', color: '#fff'}}
         />
         <Icon
-        containerStyle={{alignSelf: 'center', justifyContent: 'center'}}
+          containerStyle={{marginVertical: 150, justifyContent: 'center'}}
           size={250}
           name='heart'
           type='font-awesome'
-          color='#f50' />
+          color='#f50' 
+        />
       </View>
     );
   }

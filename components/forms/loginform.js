@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableHighlight, Text, Button } from 'react-native';
+import { View, TextInput, StyleSheet, Button } from 'react-native';
 
 import Firebase from '../config/Firebase';
 
@@ -15,10 +15,10 @@ export default class LoginForm extends Component {
   }
 
   loginUser = (email, password) => {
+
     try {
-      Firebase.auth().signInWithEmailAndPassword(email, password).this(function(user) {
-        console.log(user);
-      });
+      Firebase.auth().signInWithEmailAndPassword(email, password);
+      console.log(email, password);
     }
     catch(error) {
       console.log(error.toString());
@@ -54,7 +54,7 @@ export default class LoginForm extends Component {
             title= 'Login'
             onPress={ 
               () =>
-              this.loginUser(this.state.email, this.state.password)
+              this.getCurrentUser().props.navigation.navigate('HomeTabNavigator')
               }
               color='#74D14C'
           ></Button>

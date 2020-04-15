@@ -12,24 +12,16 @@ export default class LoginScreen extends Component {
             <Text style={{color: '#E78200', fontSize: 25, textAlignVertical: 'top'}}>LOGIN</Text>
             <Image style={styles.logo} resizeMode='contain' source={require('../../../assets/mini_logo.png')}></Image>
             <LoginForm />
-            <Button
-              title= 'Sign Up'
-              onPress= {
-                () =>
-                this.props.navigation.navigate('Register')
-              }
-              color='#74D14C'
-              
-            ></Button>
-
-            <Button
-              title='Home'
-              onPress= {
-                () =>
-                this.props.navigation.navigate('HomeTabNavigator')
-              }
-              color='#74D14C'
-            ></Button>
+            <View style={{width: 250, height: 50}}>
+              <Button
+                title= 'Sign Up'
+                onPress= {
+                  () =>
+                  this.props.navigation.navigate('Register')
+                }
+                color='#74D14C'
+              ></Button>
+            </View>
           </View>
       </KeyboardAvoidingView>
     );
@@ -55,8 +47,4 @@ const styles = StyleSheet.create({
     width: 500,
     height: 250,
   },
-  buttonStyle: {
-    width: 250,
-    height: 40
-  }
 });

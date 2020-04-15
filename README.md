@@ -1,7 +1,7 @@
 # Dietary App
 
 Capstone project and Main Portfolio piece. 
-This app helps users with health conditions find recipes and will build a meal plan based on their needs. 
+This app helps users with health conditions find recipes.
 I will be working with React-Native, Firebase and a Recipe API to accomplish this.
 
 ## Prerequisites
@@ -54,6 +54,15 @@ The packages that need to be installed inorder to get the project running
    npm install react-native-elements
 ```
 
+9. Install the dependencies for REACT NATIVE ONBOARDING SWIPER
+```
+   npm install react-native-onboarding-swiper
+```
+
+10.  Install the dependencies for AXIOS
+```
+   npm install axios
+```
 ## Running the tests
 
 Use expo start to run the app and then scan the tunnel qr code with your phone to see it running live.

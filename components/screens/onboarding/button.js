@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 export default class CustomButton extends Component {
-    render( {onPress} = this.props ) {
+    render( {onPress} = this.props.navigation.navigate('HomeTabNavigator') ) {
         return (
             <TouchableOpacity onPress={ onPress }>
                 <View style={styles.button}>

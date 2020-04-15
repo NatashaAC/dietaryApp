@@ -71,9 +71,11 @@ export default class RecipeScreen extends Component {
       <ScrollView>
         <Header
           containerStyle={{
-            backgroundColor: '#74D14C'
+            backgroundColor: '#74D14C',
+            height: 60,
+            paddingVertical: 25
           }} 
-          centerComponent={{ text: 'Recipes', style: { color: '#fff'}}}
+          centerComponent={{ text: 'RECIPES', style: { color: '#fff'}}}
           rightComponent={{ icon: 'menu', color: '#fff'}}
         />
 

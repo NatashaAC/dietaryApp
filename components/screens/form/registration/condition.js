@@ -1,9 +1,33 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Text, Button} from 'react-native';
 
-import { CheckBox } from 'react-native-elements';
+import { CheckBox, Header } from 'react-native-elements';
+
+var tempCheckValues = [];
 
 export default class HealthCondition extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            boxChecked: []
+        }
+    }
+
+    boxChanged(name, value) {
+        this.setState({
+            boxChecked: tempCheckValues
+        })
+
+        var tempBoxChecked = this.state.boxChecked;
+        tempBoxChecked[name] = !value;
+
+        this.setState({
+            boxChecked: tempBoxChecked
+        })
+
+    }
 
     render() {
 
@@ -32,16 +56,34 @@ export default class HealthCondition extends Component {
         ]
 
         return (
-            <View style={styles.container}>
-                <Text>Health Screen</Text>
+            <View>
+                <Header
+                    containerStyle={{
+                        backgroundColor: '#74D14C',
+                        height: 60,
+                        paddingVertical: 25
+                    }} 
+                    placement='center'
+                    centerComponent={{text: 'HEALTH CONDITION', style: {color: '#FFF'}}}
+                />
                 {
-                    list.map((l, i) => (
-                        <CheckBox
-                            key={i}
-                            title={l.name}
-                        />
-                    ))
+                    list.map((val) => {
+                        {tempCheckValues[val.name] = false}
+
+                        return (
+
+                            <View key={val.name} style={{ flexDirection: 'column' }}>
+                                <CheckBox
+                                    title={val.name}
+                                    checked={this.state.boxChecked[val.name]}
+                                    onPress={() => this.boxChanged(val.name, this.state.boxChecked[val.name] )}
+                                />
+                            </View>
+ 
+                        );
+                    })
                 }
+
                 <Button
                     title='Next'
                     onPress = {
