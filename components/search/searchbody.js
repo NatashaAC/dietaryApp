@@ -31,10 +31,10 @@ export default class SearchBody extends Component {
             <Card 
               title={recipeData.title}
             >
-              <Image
+              {/* <Image
                 resizeMode='contain'
                 source={{uri: recipeData.image}} style={{height: 150, width: 150}}>
-              </Image>
+              </Image> */}
               <Text>Ready in {recipeData.readyInMinutes} minutes</Text>
               <Button 
                 title='Add to Favourites'
