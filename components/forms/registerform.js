@@ -14,14 +14,14 @@ export default class RegisterForm extends Component {
     })
   }
 
-  signUpUser = (email, password) => {
+  signUpUser = () => {
     try {
       if(this.state.password.length < 6) {
         alert("Please enter atleast 6 charatcers!")
         return;
       }
 
-      Firebase.auth().createUserWithEmailAndPassword(email, password)
+      Firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
     }
     catch(error) {
       console.log(error.toString());
@@ -31,7 +31,7 @@ export default class RegisterForm extends Component {
     render() {
       return (
         <View style={styles.container}>
-          <TextInput style={styles.input}
+          {/* <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
               autoCorrect= {false}
               keyboardType= 'first-name'
@@ -47,25 +47,29 @@ export default class RegisterForm extends Component {
               returnKeyType= "next"
               placeholder= "Last Name"
               placeholderTextColor= 'lightgray'>
-          </TextInput>
+          </TextInput> */}
 
           <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
               autoCorrect= {false}
+              autoCapitalize='none'
               keyboardType= 'email-address'
               returnKeyType= "next"
               placeholder= "Email"
               placeholderTextColor= 'lightgray'
-              onChangeText={(email) => this.setState({ email })}>
+              onChangeText={(email) => this.setState({ email })}
+              value={this.state.email}>
           </TextInput>
             
           <TextInput style={styles.input}
               returnKeyType="go"
               ref={(input) => this.passwordInput = input}
+              autoCapitalize='none'
               placeholder="Password"
               placeholderTextColor= "lightgray"
               secureTextEntry
-              onChangeText={(password) => this.setState({ password })}>
+              onChangeText={(password) => this.setState({ password })}
+              value={this.state.password}>
           </TextInput>
 
           <Button

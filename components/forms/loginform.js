@@ -17,7 +17,7 @@ export default class LoginForm extends Component {
   loginUser = (email, password) => {
 
     try {
-      Firebase.auth().signInWithEmailAndPassword(email, password);
+      Firebase.auth().signInWithEmailAndPassword(email, password).then(() => this.props.navigation.navigate('HomeTabNavigator'))
       console.log(email, password);
     }
     catch(error) {
@@ -54,7 +54,7 @@ export default class LoginForm extends Component {
             title= 'Login'
             onPress={ 
               () =>
-              this.getCurrentUser().props.navigation.navigate('HomeTabNavigator')
+              this.loginUser(email, password)
               }
               color='#74D14C'
           ></Button>

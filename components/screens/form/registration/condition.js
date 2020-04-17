@@ -75,6 +75,8 @@ export default class HealthCondition extends Component {
                             <View key={val.name} style={{ flexDirection: 'column' }}>
                                 <CheckBox
                                     title={val.name}
+                                    checkedColor='#74D444'
+                                    checkedIcon='check-square'
                                     checked={this.state.boxChecked[val.name]}
                                     onPress={() => this.boxChanged(val.name, this.state.boxChecked[val.name] )}
                                 />

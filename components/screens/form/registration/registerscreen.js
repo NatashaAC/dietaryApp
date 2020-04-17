@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { StyleSheet, Text, View, Button, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, Button, KeyboardAvoidingView, Image } from 'react-native';
 
 import RegisterForm from '../../../forms/registerform';
 
@@ -8,16 +8,19 @@ export default class RegisterScreen extends Component {
     return (
       <KeyboardAvoidingView enabled behavior='padding' style={styles.container}>
         <View style={styles.signupContainer}>
-          <Text>Create an Account</Text>
+          <Text style={{color: '#E78200', fontSize: 25, textAlignVertical: 'top'}}>Create an Account</Text>
+          <Image style={styles.logo} resizeMode='contain' source={require('../../../../assets/mini_logo2.png')}></Image>
           <RegisterForm />
-          <Button
-              title= 'Next'
-              onPress= {
-                () =>
-                this.props.navigation.navigate('Health')
-              }
-              color='#74D14C'
-          ></Button> 
+          <View style={{width: 250, height: 50}}>
+            <Button
+                title= 'Next'
+                onPress= {
+                  () =>
+                  this.props.navigation.navigate('Health')
+                }
+                color='#74D14C'
+            ></Button> 
+          </View>
         </View>
       </KeyboardAvoidingView>
     );
@@ -27,10 +30,9 @@ export default class RegisterScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#EAF8E4',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#EAF8E4'
+    justifyContent: 'center'
   },
   signupContainer:{
     alignItems: 'center',
@@ -38,5 +40,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     height: 600, 
     width: 330
-  }
+  },
+  logo: {
+    position: 'relative',
+    width: 350,
+    height: 150
+  },
 });

@@ -1,40 +1,49 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
-import { Header, Icon } from 'react-native-elements';
+import { Header, Icon, Card } from 'react-native-elements';
 
-// const screen = Dimensions.get('screen')
+import Firebase from '../../config/Firebase';
 
 export default class HomeScreen extends Component {
 
-  // state = {
+  state = {
 
-  //   getFact: {}
+    currentUser: null
 
-  // }
+  }
 
+  componentDidMount() {
+    const { currentUser } = Firebase.auth()
+    this.setState({ currentUser })
+  }
+ 
   render() {
 
-    // const axios = require("axios");
+    const { currentUser } = this.state;
 
-    // axios({
-    //     "method":"GET",
-    //     "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random",
-    //     "headers":{
-    //     "content-type":"application/octet-stream",
-    //     "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    //     "x-rapidapi-key":"28ef96556amsh63000c2e224a8cfp1806e9jsn1a1938144972"
-    //     }
-    //     })
-    //     .then((response)=>{
-    //       var data = response.data
-    //       getFact = data
-
-    //       console.log(response.data)
-    //     })
-    //     .catch((error)=>{
-    //       console.log(error)
-    //     })
+    const recipes = [
+      {
+        title: 'Hamburger',
+        image: '../../../assets/hamburger.jpg',
+        description: 'Delicous bacon and cheese hamburger with spicy mayo.'
+      },
+      {
+        title: 'Pasta',
+        image: '../../../assets/pasta.jpg',
+        description: 'Creamy chicken alfredo.'
+      },
+      {
+        title: 'Salad',
+        image: '../../../assets/salad.jpg',
+        description: 'Tasty onion, tomato, and feta cheese salad.'
+      },
+      {
+        title: 'Sandwich',
+        image: '../../../assets/sandwich.jpg',
+        description: 'Roast beef sandwich with tomatoes.'
+      }
+    ]
 
     return (
       <View>
@@ -44,10 +53,24 @@ export default class HomeScreen extends Component {
             height: 60,
             paddingVertical: 25
           }} 
-          centerComponent={{ text: 'HOME', style: { color: '#fff'}}}
+          centerComponent={{ text: 'HOME', style: { fontSize: 20, fontFamily: 'sans-serif', color: '#fff'}}}
           rightComponent={{ icon: 'menu', color: '#fff'}}
         />
-        {/* <Text>{this.state.getFact.text}</Text> */}
+        <Text>Hello, { currentUser && currentUser.email }!</Text>
+        <Card title='RECOMMENDED RECIPES'>
+          {
+            recipes.map((rec, i) => {
+              <View key={i}>
+                <Image
+                  resizeMode='contain'
+                  source={{uri: rec.image}}
+                ></Image>
+                <Text>{rec.title}</Text>
+                <Text>{rec.description}</Text>
+              </View>
+            })
+          }
+        </Card>
       </View>
     )
   }
