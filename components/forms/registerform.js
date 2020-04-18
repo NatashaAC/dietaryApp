@@ -9,6 +9,8 @@ export default class RegisterForm extends Component {
     super(props)
 
     this.state = ({
+      firstname: '',
+      lastname: '',
       email: '',
       password: ''
     })
@@ -17,10 +19,9 @@ export default class RegisterForm extends Component {
   signUpUser = () => {
     try {
       if(this.state.password.length < 6) {
-        alert("Please enter atleast 6 charatcers!")
+        alert("Fields are blank and please enter atleast 6 charatcers!")
         return;
       }
-
       Firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
     }
     catch(error) {
@@ -28,16 +29,31 @@ export default class RegisterForm extends Component {
     }
   }
 
+  writeUserData(firstname, lastname, email) {
+    Firebase.database().ref('users/').push({
+      firstname,
+      lastname,
+      email
+    }).then((data) => {
+      console.log('data', data);
+    }).catch((error) => {
+      console.log('error', error);
+    })
+  }
+
     render() {
       return (
         <View style={styles.container}>
-          {/* <TextInput style={styles.input}
+          <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
               autoCorrect= {false}
               keyboardType= 'first-name'
               returnKeyType= "next"
               placeholder= "First Name"
-              placeholderTextColor= 'lightgray'>
+              placeholderTextColor= 'lightgray'
+              onChangeText={(firstname) => this.setState({ firstname })}
+              value={this.state.firstname}
+              >
           </TextInput>
           
           <TextInput style={styles.input}
@@ -46,8 +62,11 @@ export default class RegisterForm extends Component {
               keyboardType= 'last-name'
               returnKeyType= "next"
               placeholder= "Last Name"
-              placeholderTextColor= 'lightgray'>
-          </TextInput> */}
+              placeholderTextColor= 'lightgray'
+              onChangeText={(lastname) => this.setState({ lastname })}
+              value={this.state.lastname}
+              >
+          </TextInput>
 
           <TextInput style={styles.input}
               onSubmitEditing= { () => this.passwordInput.focus()}
@@ -78,7 +97,7 @@ export default class RegisterForm extends Component {
             color='#74D14C'
             onPress= { 
               () => 
-              this.signUpUser(this.state.email, this.state.password) 
+              this.signUpUser(this.state.email, this.state.password)
               }>
           </Button>
         </View>

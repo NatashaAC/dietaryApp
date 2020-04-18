@@ -17,7 +17,7 @@ const switchNavigator = createSwitchNavigator({
   HomeTabNavigator: { screen: HomeTabNavigator }
 }
 ,{
-  initialRouteName: 'HomeTabNavigator'
+  initialRouteName: 'Register'
 }
 );
 
